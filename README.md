@@ -56,7 +56,7 @@ This program calculates salary deductions based on government-mandated contribut
 ### **Running the Program**
 1. Run the script in a Python environment:
    ```sh
-   python salary_deductions.py
+   python salary_deduction_calculator.py
    ```
 2. Enter a valid salary when prompted.
 3. The program will output the gross salary, deductions, and net salary.
