@@ -1,15 +1,25 @@
-def compute_deductions(monthly_salary):
-    sss_contribution = 1200
-    philhealth_contribution = (monthly_salary * 0.05) / 2
-    pagibig_contribution = 100
-    tax_deduction = 1875  # Placeholder for fixed tax
+def calculate_sss():
+    return 1200
 
-    total_deductions = (
-        sss_contribution + philhealth_contribution + pagibig_contribution + tax_deduction
-    )
-    net_salary = monthly_salary - total_deductions
+def calculate_philhealth(salary):
+    return (salary * 0.05) / 2
 
-    print("Gross Salary:", monthly_salary)
+def calculate_pagibig():
+    return 100
+
+def calculate_tax():
+    return 1875  # Placeholder for now
+
+def compute_deductions(salary):
+    sss_contribution = calculate_sss()
+    philhealth_contribution = calculate_philhealth(salary)
+    pagibig_contribution = calculate_pagibig()
+    tax_deduction = calculate_tax()
+
+    total_deductions = sss_contribution + philhealth_contribution + pagibig_contribution + tax_deduction
+    net_salary = salary - total_deductions
+
+    print("Gross Salary:", salary)
     print("SSS Deduction:", sss_contribution)
     print("PhilHealth Deduction:", philhealth_contribution)
     print("Pag-IBIG Deduction:", pagibig_contribution)
