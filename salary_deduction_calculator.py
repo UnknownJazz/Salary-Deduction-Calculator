@@ -1,32 +1,51 @@
-def calculate_sss():
-    return 1200
+class SalaryDeductions:
+    def __init__(self, salary):
+        self.salary = salary
 
-def calculate_philhealth(salary):
-    return (salary * 0.05) / 2
+    def calculate_sss(self):
+        return 1200
 
-def calculate_pagibig():
-    return 100
+    def calculate_philhealth(self):
+        return (self.salary * 0.05) / 2
 
-def calculate_tax():
-    return 1875  # Placeholder for now
+    def calculate_pagibig(self):
+        return 100
 
-def compute_deductions(salary):
-    sss_contribution = calculate_sss()
-    philhealth_contribution = calculate_philhealth(salary)
-    pagibig_contribution = calculate_pagibig()
-    tax_deduction = calculate_tax()
+    def calculate_tax(self):
+        return 1875  # Placeholder for tax calculation
 
-    total_deductions = sss_contribution + philhealth_contribution + pagibig_contribution + tax_deduction
-    net_salary = salary - total_deductions
+    def compute_deductions(self):
+        sss_contribution = self.calculate_sss()
+        philhealth_contribution = self.calculate_philhealth()
+        pagibig_contribution = self.calculate_pagibig()
+        tax_deduction = self.calculate_tax()
 
-    print("Gross Salary:", salary)
-    print("SSS Deduction:", sss_contribution)
-    print("PhilHealth Deduction:", philhealth_contribution)
-    print("Pag-IBIG Deduction:", pagibig_contribution)
-    print("Tax Deduction:", tax_deduction)
-    print("Total Deductions:", total_deductions)
-    print("Net Salary:", net_salary)
+        total_deductions = sss_contribution + philhealth_contribution + pagibig_contribution + tax_deduction
+        net_salary = self.salary - total_deductions
 
+        return {
+            "Gross Salary": self.salary,
+            "SSS Deduction": sss_contribution,
+            "PhilHealth Deduction": philhealth_contribution,
+            "Pag-IBIG Deduction": pagibig_contribution,
+            "Tax Deduction": tax_deduction,
+            "Total Deductions": total_deductions,
+            "Net Salary": net_salary,
+        }
 
-salary = float(input("Enter your monthly salary: "))
-compute_deductions(salary)
+def main():
+    try:
+        salary = float(input("Enter your monthly salary: "))
+        if salary < 0:
+            raise ValueError("Salary cannot be negative.")
+
+        deductions = SalaryDeductions(salary).compute_deductions()
+
+        for key, value in deductions.items():
+            print(f"{key}: {value:.2f}")
+
+    except ValueError as e:
+        print(f"Invalid input: {e}")
+
+if __name__ == "__main__":
+    main()
