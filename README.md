@@ -79,5 +79,6 @@ Net Salary: 26075.00
 - Add unit tests for each function.
 
 ## Author
-[Your Name]
+Chas Omer M. Madlos
+
 
